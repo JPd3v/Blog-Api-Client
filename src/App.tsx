@@ -1,18 +1,22 @@
 import './App.css';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import LoadingPage from './utils/LoadingPage';
+import PageLayout from './utils/PageLayout';
+import PageNotFound from './pages/PageNotFound';
+
+const Home = lazy(() => import('./pages/Home'));
 
 function App() {
   return (
-    <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Suspense fallback={<LoadingPage />}>
+      <Routes>
+        <Route element={<PageLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 
