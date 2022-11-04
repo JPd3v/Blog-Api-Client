@@ -9,14 +9,16 @@ const Home = lazy(() => import('./pages/Home'));
 
 function App() {
   return (
-    <Suspense fallback={<LoadingPage />}>
-      <Routes>
-        <Route element={<PageLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <div className="App">
+      <Suspense fallback={<LoadingPage />}>
+        <Routes>
+          <Route element={<PageLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </div>
   );
 }
 

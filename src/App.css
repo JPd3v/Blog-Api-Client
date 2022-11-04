@@ -5,13 +5,28 @@
 }
 
 :root {
-  --main-background-color: #0f172a;
+  --main-background-color: #111827;
+  --second-background-color: #1f2937;
   --main-text-color: rgb(255, 255, 255);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
 }
 
 body {
   background-color: var(--main-background-color);
   color: var(--main-text-color);
+}
+
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
 }
 
 nav > ul {
@@ -21,8 +36,51 @@ nav > ul {
   list-style: none;
   justify-content: space-between;
   padding: 16px 80px;
+  background-color: var(--second-background-color);
 }
 a {
   text-decoration: none;
   color: var(--main-text-color);
+}
+
+.home__title {
+  font-size: 3rem;
+  font-weight: 900;
+  justify-self: center;
+  margin-top: 35px;
+}
+
+.article-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 35px;
+}
+
+.article-card {
+  background-color: var(--second-background-color);
+  height: 250px;
+  display: grid;
+  grid-template-rows: 1ch 1ch auto 1ch;
+  gap: 25px;
+  flex-direction: column;
+  padding: 24px 25px;
+  border-radius: 10px;
+}
+
+.article-card a:hover {
+  color: #3b85fd;
+}
+
+.article-card__author {
+  font-size: 1.7rem;
+}
+
+.article-card__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.article-card__date {
+  justify-self: end;
 }
