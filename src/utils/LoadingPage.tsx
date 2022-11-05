@@ -1,3 +1,5 @@
 export default function LoadingPage() {
-  return <div>Loading page Spinner Placeholder</div>;
+  return (
+    <div className="flex-centered-40vh">Loading page Spinner Placeholder</div>
+  );
 }
