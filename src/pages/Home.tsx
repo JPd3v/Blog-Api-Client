@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import ArticlePreviewCard from '../components/ArticlePreviewCard';
+import LoadingPage from '../utils/LoadingPage';
 
-interface Articles {
+interface Article {
   author: Author;
   title: string;
   content: string;
@@ -9,7 +10,7 @@ interface Articles {
   published_date: string;
   _id: string;
 }
-export type { Articles };
+export type { Article };
 interface Author {
   first_name: string;
   last_name: string;
@@ -17,8 +18,9 @@ interface Author {
 }
 
 export default function Home() {
-  const [articles, setArticles] = useState<Articles[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
   const [fetchError, setFetchError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -32,10 +34,13 @@ export default function Home() {
 
         const data = await response.json();
         setArticles(data);
+        setLoading(false);
       } catch (err) {
         if (!controller.signal.aborted) {
           console.log(err);
-          setFetchError('failed getting blog articles from the server');
+          setLoading(false);
+
+          setFetchError('Failed getting blog articles from the server.');
         }
       }
     }
@@ -56,9 +61,10 @@ export default function Home() {
             </div>
           ))
         ) : (
-          <div>{fetchError}</div>
+          <div className="articles-fetch-error">{fetchError}</div>
         )}
       </div>
+      {loading && !fetchError ? <LoadingPage /> : null}
     </>
   );
 }

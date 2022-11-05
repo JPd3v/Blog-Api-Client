@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import type { Articles } from '../pages/Home';
+import type { Article } from '../pages/Home';
 
 interface ComponentProps {
-  article: Articles;
+  article: Article;
 }
 
 export default function ArticlePreviewCard({ article }: ComponentProps) {
@@ -25,28 +25,3 @@ export default function ArticlePreviewCard({ article }: ComponentProps) {
     </>
   );
 }
-
-// interface ComponentProps {
-//   title: string;
-//   content: string;
-//   authorName: string;
-//   authorLastName: string;
-//   publishedDate: string;
-// }
-
-// export default function ArticlePreviewCard({
-//   title,
-//   authorName,
-//   authorLastName,
-//   content,
-//   publishedDate,
-// }: ComponentProps) {
-//   return (
-//     <>
-//       <p>{title}</p>
-//       <p>{`${authorName} ${authorLastName}`}</p>
-//       <p>{content}</p>
-//       <p>{publishedDate}</p>
-//     </>
-//   );
-// }
