@@ -26,7 +26,7 @@ export default function BlogArticle() {
     async function getArticle() {
       try {
         const response = await fetch(
-          `http://localhost:3000/articles/${params.id}`,
+          `https://blog-api-787a.onrender.com/articles/${params.id}`,
           { signal: controller.signal }
         );
         const data = await response.json();
@@ -52,7 +52,7 @@ export default function BlogArticle() {
       {!fetchError && !loading ? (
         <>
           <SingleArticle article={article} />
-          <CommentForm />
+          <CommentForm articleId={article._id} />
           <CommentSection />
         </>
       ) : (

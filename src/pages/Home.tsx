@@ -28,7 +28,7 @@ export default function Home() {
     async function getArticles() {
       try {
         const response = await fetch(
-          'http://localhost:3000/articles?published=true',
+          'https://blog-api-787a.onrender.com/articles?published=true',
           { signal: controller.signal }
         );
 
