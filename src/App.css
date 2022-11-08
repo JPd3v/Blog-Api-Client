@@ -116,7 +116,8 @@ a {
 
 .article {
   display: grid;
-  grid-template-rows: auto 200px auto;
+  grid-template-rows: auto auto auto;
+  gap: 45px;
 }
 
 .article-content {
@@ -139,4 +140,42 @@ a {
 
 .article-content__date {
   font-size: 1.4rem;
+}
+
+.article__comment-form {
+  margin-top: 10 0px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.comment-form__text {
+  font-size: 2rem;
+}
+
+.comment-form__input {
+  background-color: var(--second-background-color);
+  color: var(--main-text-color);
+  width: 180px;
+  border: 1px solid #4d4ccf;
+  border-radius: 5px;
+}
+
+.comment-form__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form__submit-button {
+  padding: 8px;
+  background: none;
+  color: var(--main-text-color);
+  border-radius: 5px;
+  border: 2px solid #4d4ccf;
+  cursor: pointer;
 }
