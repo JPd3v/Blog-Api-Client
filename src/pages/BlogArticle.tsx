@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import CommentForm from '../components/CommentForm';
 import CommentSection from '../components/CommentSection';
 import SingleArticle from '../components/SingleArticle';
 import LoadingPage from '../utils/LoadingPage';
@@ -52,8 +51,8 @@ export default function BlogArticle() {
       {!fetchError && !loading ? (
         <>
           <SingleArticle article={article} />
-          <CommentForm articleId={article._id} />
-          <CommentSection />
+
+          <CommentSection articleId={article._id} />
         </>
       ) : (
         <div>{fetchError}</div>

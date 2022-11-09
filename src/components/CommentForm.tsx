@@ -2,9 +2,13 @@ import { useState } from 'react';
 
 interface ComponentProps {
   articleId: string;
+  hadleNewComment: () => void;
 }
 
-export default function CommentForm({ articleId }: ComponentProps) {
+export default function CommentForm({
+  articleId,
+  hadleNewComment,
+}: ComponentProps) {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,6 +33,7 @@ export default function CommentForm({ articleId }: ComponentProps) {
         setIsSubmitting(false);
         setName('');
         setComment('');
+        hadleNewComment();
       } else {
         setFormResponse('Something went wrong, please try again later');
       }
