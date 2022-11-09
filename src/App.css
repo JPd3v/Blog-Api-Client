@@ -118,6 +118,7 @@ a {
   display: grid;
   grid-template-rows: auto auto auto;
   gap: 45px;
+  padding: 5%;
 }
 
 .article-content {
@@ -125,8 +126,7 @@ a {
   gap: 15px;
   grid-template-rows: 1.7rem auto auto auto;
   background: var(--second-background-color);
-  padding: 30px;
-  margin: 30px;
+  padding: 5%;
   border-radius: 10px;
 }
 
@@ -178,4 +178,29 @@ a {
   border-radius: 5px;
   border: 2px solid #4d4ccf;
   cursor: pointer;
+}
+
+.article__comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--second-background-color);
+  border-radius: 10px;
+  padding: 40px 0px;
+  gap: 25px;
+}
+
+.comments-container__comment {
+  border: 2px solid #4d4ccf;
+  border-radius: 5px;
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment__header {
+  display: flex;
+  gap: 10px;
 }
