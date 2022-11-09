@@ -102,6 +102,10 @@ a {
   text-align: center;
   background-color: var(--second-background-color);
   padding: 50px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .page-not-found-error > a {

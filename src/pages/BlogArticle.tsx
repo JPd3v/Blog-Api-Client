@@ -4,6 +4,7 @@ import CommentSection from '../components/CommentSection';
 import SingleArticle from '../components/SingleArticle';
 import LoadingPage from '../utils/LoadingPage';
 import type { Article } from './Home';
+import PageNotFound from './PageNotFound';
 
 const initialArticle = {
   author: { first_name: '', last_name: '', _id: '' },
@@ -48,14 +49,16 @@ export default function BlogArticle() {
   }, []);
   return (
     <div className="article">
-      {!fetchError && !loading ? (
+      {!fetchError && !loading && article._id ? (
         <>
           <SingleArticle article={article} />
 
           <CommentSection articleId={article._id} />
         </>
       ) : (
-        <div>{fetchError}</div>
+        <div className="flex-centered-40vh">
+          {!fetchError && !loading ? <PageNotFound /> : <div>{fetchError}</div>}
+        </div>
       )}
       {!fetchError && loading ? <LoadingPage /> : null}
     </div>
