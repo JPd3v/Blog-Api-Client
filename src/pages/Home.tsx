@@ -51,7 +51,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <>
+    <div className="home">
       <div className="home__title"> Latest Blogs Articles </div>
       <div className="article-card-container">
         {!fetchError ? (
@@ -65,6 +65,6 @@ export default function Home() {
         )}
       </div>
       {loading && !fetchError ? <LoadingPage /> : null}
-    </>
+    </div>
   );
 }

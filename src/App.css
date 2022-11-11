@@ -43,11 +43,18 @@ a {
   color: var(--main-text-color);
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .home__title {
   font-size: 3rem;
   font-weight: 900;
   justify-self: center;
   margin-top: 35px;
+  align-self: center;
 }
 
 .article-card-container {
