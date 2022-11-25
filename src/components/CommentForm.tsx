@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import LoadingSpinner from '../utils/LoadingSpinner';
 
 interface ComponentProps {
   articleId: string;
@@ -54,7 +55,7 @@ export default function CommentForm({
 
   return (
     <form className="article__comment-form comment-form" onSubmit={formHandler}>
-      <p className="comment-form__text">leave a comment </p>
+      <p className="comment-form__text">Leave a comment </p>
       <label htmlFor="name" className="comment-form__label">
         Name:
         <input
@@ -85,9 +86,9 @@ export default function CommentForm({
         className="comment-form__submit-button"
         disabled={isSubmitting}
       >
-        submit comment
+        Submit comment
       </button>
-      {isSubmitting ? <p>Loading...</p> : null}
+      {isSubmitting ? <LoadingSpinner /> : null}
       {formResponse && !isSubmitting ? <p>{formResponse}</p> : null}
     </form>
   );

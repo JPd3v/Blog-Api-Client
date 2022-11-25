@@ -6,10 +6,15 @@ interface ComponentProps {
 }
 
 export default function ArticlePreviewCard({ article }: ComponentProps) {
+  const formatedDate = new Date(article.published_date).toLocaleDateString(
+    'en-US',
+    { day: 'numeric', month: 'long', year: 'numeric' }
+  );
+
   return (
     <>
       <Link
-        to={`/user/${article?.author?._id}`}
+        to={`/author/${article?.author?._id}`}
         className="article-card__author"
       >
         {`${article?.author?.first_name} ${article?.author?.last_name}`}
@@ -21,7 +26,7 @@ export default function ArticlePreviewCard({ article }: ComponentProps) {
         {article.content}
       </Link>
 
-      <p className="article-card__date">{article.published_date}</p>
+      <p className="article-card__date">{formatedDate}</p>
     </>
   );
 }

@@ -8,6 +8,7 @@
   --main-background-color: #111827;
   --second-background-color: #1f2937;
   --main-text-color: rgb(255, 255, 255);
+  --spinner-color: rgb(255, 255, 255);
 }
 
 html {
@@ -73,6 +74,11 @@ a {
   flex-direction: column;
   padding: 24px 25px;
   border-radius: 10px;
+}
+
+.article-card a {
+  width: fit-content;
+  height: fit-content;
 }
 
 .article-card a:hover {
@@ -214,4 +220,40 @@ a {
 .comment__header {
   display: flex;
   gap: 10px;
+}
+
+.page-loading-spinner {
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  width: 36px;
+  height: 36px;
+}
+
+.title__author-name {
+  color: #3b85fd;
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+}
+
+.spinner {
+  border: 4px solid var(--spinner-color);
+  border-left-color: transparent;
+  width: 100%;
+  height: 100%;
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

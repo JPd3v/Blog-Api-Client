@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import LoadingSpinner from '../utils/LoadingSpinner';
 import Comment from './Comment';
 import CommentForm from './CommentForm';
 
@@ -52,7 +53,7 @@ export default function CommentSection({ articleId }: ComponentProps) {
 
   return (
     <>
-      {!fetchError && !loading ? (
+      {!loading ? (
         <CommentForm
           articleId={articleId}
           hadleNewComment={() => hadleNewComment()}
@@ -71,7 +72,10 @@ export default function CommentSection({ articleId }: ComponentProps) {
         ) : (
           <div>{fetchError}</div>
         )}
-        {!fetchError && loading ? <div>Loading comments...</div> : null}
+        {!fetchError && !loading && !comments.length ? (
+          <div>No one commented on this article until now, be the first!</div>
+        ) : null}
+        {!fetchError && loading ? <LoadingSpinner /> : null}
       </div>
     </>
   );
